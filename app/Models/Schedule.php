@@ -5,12 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Passenger extends Model
+class Schedule extends Model
 {
-    protected $fillable = [
-        'name',
-        'username',
-        'password',
-    ];
+    protected $fillable = ['busno', 'driver', 'departure', 'arrival' ];
 }
 

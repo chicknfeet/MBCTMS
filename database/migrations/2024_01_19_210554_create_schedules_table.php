@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('drivers', function (Blueprint $table) {
+        Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->String('name');
-            $table->integer('age');
-            $table->string('schedule');
-            $table->string('route');
-            $table->string('busno');
-            $table->string('conductor');
-            $table->string('dispatcher');
-            $table->string('status');
+            $table->string('marivelestime');
+            $table->string('route1');
+            $table->string('balangatime');
+            $table->string('barrier');
+            $table->string('balangatimes');
+            $table->string('route2');
+            $table->string('marivelestimes');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('drivers');
+        Schema::dropIfExists('schedules');
     }
 };

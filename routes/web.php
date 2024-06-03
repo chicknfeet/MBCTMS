@@ -10,11 +10,10 @@ use App\Http\Controllers\admin\ScheduleController;
 use App\Http\Controllers\admin\CheckpointController;
 
 //passenger
-use App\Http\Controllers\passenger\PassengerAuthController;
 use App\Http\Controllers\passenger\PassengerBusInfoController;
 use App\Http\Controllers\passenger\PassengerScheduleController;
-
-
+use App\Models\Conductor;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,13 +38,19 @@ Route::get('/admin/login',[AuthController::class,'index'])->name('admin.login');
 Route::post('/admin/login',[AuthController::class,'login'])->name('admin.login.submit');
 Route::get('/admin/logout',[AuthController::class,'logout'])->middleware('auth')->name('admin.logout');
 
-Route::get('/admin/drivers',[DriversController::class,'index'])->middleware('auth')->name('admin.Drivers');
-Route::get('/admin/drivers/update/{id}', [DriversController::class, 'updateDrivers'])->name('updateDrivers');
-Route::put('/admin/drivers/updated/{id}', [DriversController::class, 'updatedDrivers'])->name('updatedDrivers');
-Route::delete('/admin/drivers/delete/{id}', [DriversController::class, 'deleteRDrivers'])->name('deleteDrivers');
+Route::get('/admin/drivers',[AuthController::class,'index'])->middleware('auth')->name('admin.Drivers');
+Route::get('/admin/driver/create', [DriversController::class, 'createDriver'])->name('admin.driver.create');
+Route::post('/admin/driver/store', [DriversController::class, 'storeDriver'])->name('admin.store');
+Route::get('/admin/driver/update/{id}', [DriversController::class, 'updateDriver'])->name('updateDriver');
+Route::put('/admin/driver/updated/{id}', [DriversController::class, 'updatedDriver'])->name('updatedDriver');
+Route::delete('/admin/driver/delete/{id}', [DriversController::class, 'deleteDriver'])->name('deleteDriver');
 
-Route::get('/admin/drivers/driver/{driverId}', [DriversController::class, 'showDriver'])->name('showDriver');
-Route::post('/admin/drivers/driver/{driversId}', [DriversController::class, 'addDriver'])->name('addDriver');
+Route::get('/admin/schedule/create', [ScheduleController::class, 'createSchedule'])->name('admin.schedule.create');
+Route::post('/admin/schedule/store', [ScheduleController::class, 'storeSchedule'])->name('admin.store');
+Route::get('/admin/schedule/update/{id}', [ScheduleController::class, 'updateSchedule'])->name('updateSchedule');
+Route::put('/admin/schedule/updated/{id}', [ScheduleController::class, 'updatedSchedule'])->name('updatedSchedule');
+Route::delete('/admin/schedule/delete/{id}', [ScheduleController::class, 'deleteSchedule'])->name('deleteSchedule');
+
 
 Route::get('/admin/drivers',[DriversController::class,'index'])->middleware('auth')->name('admin.drivers');
 Route::get('/admin/schedule',[ScheduleController::class,'index'])->middleware('auth')->middleware('auth')->name('admin.schedule');
@@ -55,12 +60,6 @@ Route::get('/admin/checkpoint',[CheckpointController::class,'index'])->middlewar
 
 
 // for passenger
-Route::get('/passenger/signup',[PassengerAuthController::class,'registration'])->name('passenger.registration');
-Route::post('/passenger/signup',[PassengerAuthController::class,'signup'])->name('passenger.signup');
-
-Route::get('/passenger/login',[PassengerAuthController::class,'index'])->name('passenger.login');
-Route::post('/passenger/login',[PassengerAuthController::class,'login'])->name('passenger.login.submit');
-Route::get('/passenger/logout',[PassengerAuthController::class,'logout'])->middleware('auth')->name('passenger.logout');
-
 Route::get('/passenger/businfo',[PassengerBusInfoController::class,'index'])->name('passenger.businfo');
 Route::get('/passenger/schedule',[PassengerScheduleController::class,'index'])->name('passenger.schedule');
+Route::get('/passenger/schedule/create', [PassengerScheduleController::class, 'createSchedule'])->name('passenger.schedule.create');

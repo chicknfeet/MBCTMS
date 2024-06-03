@@ -6,6 +6,8 @@ namespace Database\Seeders;
 
 use App\Models\Admin;
 use App\Models\Driver;
+use App\Models\Schedule;
+use App\Models\Checkpoint;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,207 +19,136 @@ class DatabaseSeeder extends Seeder
     {
         Admin::factory()->create();
 
-
-
-
         Driver::truncate();
+        Schedule::truncate();
+        Checkpoint::truncate();
 
         Driver::create([
-            'name' => 'Driver 1',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+            'name' => 'Dwight',
+            'age' => 45,
+            'schedule' => 'JUNE 9 | 5:00 AM',
+            'route' => 'MARIVELES -> BALANGA',
+            'busno' => 'P-123',
+            'conductor' => 'John',
+            'dispatcher' => 'Frank',
+            'status' => 'Registered'
         ]);
 
         Driver::create([
-            'name' => 'Driver 2',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+            'name' => 'Jay',
+            'age' => 34,
+            'schedule' => 'JUNE 9 | 5:08 AM',
+            'route' => 'MARIVELES -> BALANGA',
+            'busno' => 'P-653',
+            'conductor' => 'Mark',
+            'dispatcher' => 'Bruce',
+            'status' => 'UnRegistered'
         ]);
 
         Driver::create([
-            'name' => 'Driver 3',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+            'name' => 'Daniel',
+            'age' => 28,
+            'schedule' => 'JUNE 9 | 5:016 AM',
+            'route' => 'MARIVELES -> BALANGA',
+            'busno' => 'P-232',
+            'conductor' => 'Juan',
+            'dispatcher' => 'Duke',
+            'status' => 'Registered'
         ]);
 
         Driver::create([
-            'name' => 'Driver 4',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+            'name' => 'Don',
+            'age' => 25,
+            'schedule' => 'JUNE 10 | 5:00 AM',
+            'route' => 'BALANGA -> MARIVELES',
+            'busno' => 'P-231',
+            'conductor' => 'Dennis',
+            'dispatcher' => 'Jordan',
+            'status' => 'UnRegistered'
         ]);
 
         Driver::create([
-            'name' => 'Driver 5',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+            'name' => 'Jamal',
+            'age' => 32,
+            'schedule' => 'JUNE 10 | 5:08 AM',
+            'route' => 'BALANGA -> MARIVELES',
+            'busno' => 'P-154',
+            'conductor' => 'Allen',
+            'dispatcher' => 'Jan',
+            'status' => 'Registered'
         ]);
 
-        Driver::create([
-            'name' => 'Driver 6',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+        
+        
+        Schedule::create([
+            'marivelestime' => '5:00 AM',
+            'route1' => '->',
+            'balangatime' => '6:40 AM',
+            'barrier' => '|',
+            'balangatimes' => '5:00 AM',
+            'route2' => '->',
+            'marivelestimes' => '6:40 AM'
         ]);
 
-        Driver::create([
-            'name' => 'Driver 7',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+        Schedule::create([
+            'marivelestime' => '5:08 AM',
+            'route1' => '->',
+            'balangatime' => '6:48 AM',
+            'barrier' => '|',
+            'balangatimes' => '5:08 AM',
+            'route2' => '->',
+            'marivelestimes' => '6:48 AM'
         ]);
 
-        Driver::create([
-            'name' => 'Driver 8',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+        Schedule::create([
+            'marivelestime' => '5:16 AM',
+            'route1' => '->',
+            'balangatime' => '6:58 AM',
+            'barrier' => '|',
+            'balangatimes' => '5:16 AM',
+            'route2' => '->',
+            'marivelestimes' => '6:58 AM'
         ]);
 
-        Driver::create([
-            'name' => 'Driver 9',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+        Schedule::create([
+            'marivelestime' => '5:24 AM',
+            'route1' => '->',
+            'balangatime' => '7:04 AM',
+            'barrier' => '|',
+            'balangatimes' => '5:24 AM',
+            'route2' => '->',
+            'marivelestimes' => '7:04 AM'
         ]);
 
-        Driver::create([
-            'name' => 'Driver 10',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+        Schedule::create([
+            'marivelestime' => '5:32 AM',
+            'route1' => '->',
+            'balangatime' => '7:12 AM',
+            'barrier' => '|',
+            'balangatimes' => '5:32 AM',
+            'route2' => '->',
+            'marivelestimes' => '7:12 AM'
         ]);
 
-        Driver::create([
-            'name' => 'Driver 10',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+        Checkpoint::create([
+            'busno' => 'P-123',
+            'driver' => 'Kevin',
+            'departure' => 'MAY 20 | 4:00 AM',
+            'arrival' => 'MAY 20 | 5:00 AM'
         ]);
 
-        Driver::create([
-            'name' => 'Driver 11',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+        Checkpoint::create([
+            'busno' => 'P-124',
+            'driver' => 'Kobe',
+            'departure' => 'MAY 20 | 4:08 AM',
+            'arrival' => 'MAY 20 | 5:10 AM'
         ]);
 
-        Driver::create([
-            'name' => 'Driver 12',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
-        ]);
-
-        Driver::create([
-            'name' => 'Driver 13',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
-        ]);
-
-        Driver::create([
-            'name' => 'Driver 14',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
-        ]);
-
-        Driver::create([
-            'name' => 'Driver 15',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
-        ]);
-
-        Driver::create([
-            'name' => 'Driver 16',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
-        ]);
-
-        Driver::create([
-            'name' => 'Driver 17',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
-        ]);
-
-        Driver::create([
-            'name' => 'Driver 18',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
-        ]);
-
-        Driver::create([
-            'name' => 'Driver 19',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
-        ]);
-
-        Driver::create([
-            'name' => 'Driver 20',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
-        ]);
-
-        Driver::create([
-            'name' => 'Driver 21',
-            'gender' => 'male',
-            'age' => 22,
-            'email' => 'example@gmail.com',
-            'phone' => '09123456789',
-            'address' => 'Address 1',
+        Checkpoint::create([
+            'busno' => 'P-125',
+            'driver' => 'John',
+            'departure' => 'MAY 20 | 4:16 AM',
+            'arrival' => 'MAY 20 | 5:20 AM'
         ]);
     }
 }

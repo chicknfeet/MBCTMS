@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('layout.passenger')
 
 @section('content')
     <div class="container">
@@ -9,7 +9,6 @@
                 {{ session('success') }}
             </div>
         @endif
-        <button class="btn btn-primary">Add</button>
         <table class="table mt-3">
             <thead>
                 <tr>
@@ -26,10 +25,6 @@
                         <td>{{ $schedule->balangatime }}</td>
                         <td>{{ $schedule->balangatimes }}</td>
                         <td>{{ $schedule->marivelestimes }}</td>
-                        <td>
-                            <button class="btn btn-warning">Edit</button>
-                            <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this schedule?')">Delete</button>
-                        </td>
                     </tr>
                 @endforeach
             </tbody>

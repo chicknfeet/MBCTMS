@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('drivers', function (Blueprint $table) {
+        Schema::create('checkpoints', function (Blueprint $table) {
             $table->id();
-            $table->String('name');
-            $table->integer('age');
-            $table->string('schedule');
-            $table->string('route');
             $table->string('busno');
-            $table->string('conductor');
-            $table->string('dispatcher');
-            $table->string('status');
+            $table->string('driver');
+            $table->string('departure');
+            $table->string('arrival');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('drivers');
+        Schema::dropIfExists('checkpoints');
     }
 };

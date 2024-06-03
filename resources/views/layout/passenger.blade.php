@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <Style>
@@ -44,18 +45,14 @@
     </Style>
     <header>
         <nav>
-            @if(auth()->check())
+                <a href="{{ route('accounts') }}">Home</a>
                 <a href="{{ route('passenger.businfo')}}">Bus Info</a>
                 <a href="{{ route('passenger.schedule')}}">Schedule</a>
-                <a href="{{ route('passenger.logout')}}">Log Out</a>
-            @else
-                <a href="{{ route('accounts') }}">Home</a>
-                <a href="{{ route('admin.login') }}">Admin</a>
-                <a href="{{ route('passenger.login')}}">Passenger</a>
-            @endif
         </nav>
     </header>
 
     @yield('content')
+
+    
 </body>
 </html>

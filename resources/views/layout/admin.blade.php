@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <Style>
@@ -52,11 +53,25 @@
             @else
                 <a href="{{ route('accounts') }}">Home</a>
                 <a href="{{ route('admin.login') }}">Admin</a>
-                <a href="{{route('passenger.login')}}">Passenger</a>
+                <a href="{{route('passenger.businfo')}}">Passenger</a>
             @endif
         </nav>
     </header>
 
     @yield('content')
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "150px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
